@@ -9,3 +9,5 @@ my name is yw. In third grade faculty of economics.
 - econometrics
 - international trade
 - finance
+- data science
+
