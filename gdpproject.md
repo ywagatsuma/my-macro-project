@@ -26,6 +26,8 @@ plt.plot(trend, label="Trend")
 plt.legend()
 plt.show()
 
+![Quarterly GDP growth chart for Norway, 1978–2022](images/lambda1600.png)
+
 ## graph 1 for different lambda values
 lambdas = [10, 100, 1600]
 trends = {}
