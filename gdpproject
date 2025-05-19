@@ -29,4 +29,28 @@ plt.plot(trend, label="Trend")
 plt.legend()
 plt.show()
 
+## graph for different lambda values
+lambdas = [10, 100, 1600]
+trends = {}
+cycles = {}
+
+for lam in lambdas:
+    cycle, trend = sm.tsa.filters.hpfilter(log_gdp, lamb=lam)
+    trends[lam] = trend
+    cycles[lam] = cycle
+
+# plot original data and lambda
+plt.figure(figsize=(12, 6))
+plt.plot(log_gdp, label="Log Real GDP", color='gray', linewidth=1)
+for lam in lambdas:
+    plt.plot(trends[lam], label=f"Trend (λ = {lam})")
+    
+plt.title("logGDP and lambda comparison")
+plt.xlabel("year")
+plt.ylabel("logGDP")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
 
