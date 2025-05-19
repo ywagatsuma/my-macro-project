@@ -26,6 +26,8 @@ plt.plot(trend, label="Trend")
 plt.legend()
 plt.show()
 
+![image](https://github.com/user-attachments/assets/97a5fcd0-0cbe-443b-8253-3c60219d74d0)
+
 ## graph 1 for different lambda values
 lambdas = [10, 100, 1600]
 trends = {}
