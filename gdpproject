@@ -53,4 +53,16 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
+## graph 2
+plt.figure(figsize=(12, 6))
+for lam in lambdas:
+    plt.plot(cycles[lam], label=f"Cycle (λ = {lam})")
+
+plt.title("Comparison of Cyclical Components")
+plt.xlabel("year")
+plt.ylabel("Cyclical Component (Log GDP)")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
 
