@@ -140,6 +140,11 @@ std_jp = cycle_jp.std()
 print("ノルウェーの循環変動成分の標準偏差:", std)
 print("日本の循環変動成分の標準偏差:", std_jp)
 
+#＜出力結果＞
+
+#日本の循環変動成分の標準偏差: 0.016101648593517523
+#ノルウェーの循環変動成分の標準偏差: 0.030242543093255133
+
 ## correlation
 
 #2つのSeriesを列方向に結合（共通期間で揃える）
@@ -148,9 +153,30 @@ combined.columns = ['Japan', 'Norway']
 
 common_dates = cycle_jp.index.intersection(cycle.index)
 print("共通する期間:", common_dates.min(), "〜", common_dates.max())
-print("共通するデータ数（四半期数など）:", len(common_dates))
+
 
 #相関係数を計算
 correlation = combined.corr().iloc[0, 1]
 
 print("日本とノルウェーの循環変動成分の相関係数:", correlation)
+
+#＜出力結果＞
+
+#共通する期間: 1994-01-01 00:00:00 〜 2022-01-01 00:00:00
+#日本とノルウェーの循環変動成分の相関係数: 0.2569700462159005
+
+## plot two countries' time series data of cyclical component
+import matplotlib.pyplot as plt
+
+combined = pd.concat([cycle_jp, cycle], axis=1, join='inner')
+combined.columns = ['Japan', 'Norway']
+
+plt.figure(figsize=(12,6))
+plt.plot(combined.index, combined['Japan'], label='Japan')
+plt.plot(combined.index, combined['Norway'], label='Norway')
+plt.title('Cyclical Components of GDP: Japan vs Norway')
+plt.xlabel('Date')
+plt.ylabel('Cyclical Component (log GDP)')
+plt.legend()
+plt.grid(True)
+plt.show()
