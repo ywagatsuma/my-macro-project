@@ -26,7 +26,11 @@ plt.plot(trend, label="Trend")
 plt.legend()
 plt.show()
 
+<<<<<<< HEAD
 ![Quarterly GDP growth chart for Norway, 1978–2022](\Users\yuiwa\keio-macro\my-macro-project-1/lambda1600.png)
+=======
+![image](https://github.com/user-attachments/assets/97a5fcd0-0cbe-443b-8253-3c60219d74d0)
+>>>>>>> d04613272ff9b3b63b810538aec4402bf04a09d5
 
 ## graph 1 for different lambda values
 lambdas = [10, 100, 1600]
@@ -51,6 +55,8 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
+![image](https://github.com/user-attachments/assets/f426a07f-b972-4a8b-9a4f-dec3aff92213)
+
 ## graph 2
 plt.figure(figsize=(12, 6))
 for lam in lambdas:
@@ -64,3 +70,4 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
+![image](https://github.com/user-attachments/assets/62794854-e364-40ac-a63c-fd8c796ebd9a)
