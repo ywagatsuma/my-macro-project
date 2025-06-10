@@ -26,13 +26,11 @@ plt.plot(trend, label="Trend")
 plt.legend()
 plt.show()
 
-<<<<<<< HEAD
+## figure 1
 ![Quarterly GDP growth chart for Norway, 1978–2022](\Users\yuiwa\keio-macro\my-macro-project-1/lambda1600.png)
-=======
-![image](https://github.com/user-attachments/assets/97a5fcd0-0cbe-443b-8253-3c60219d74d0)
->>>>>>> d04613272ff9b3b63b810538aec4402bf04a09d5
 
-## graph 1 for different lambda values
+
+## figure 2 for different lambda values
 lambdas = [10, 100, 1600]
 trends = {}
 cycles = {}
@@ -57,7 +55,7 @@ plt.show()
 
 ![image](https://github.com/user-attachments/assets/f426a07f-b972-4a8b-9a4f-dec3aff92213)
 
-## graph 2
+## figure 3
 plt.figure(figsize=(12, 6))
 for lam in lambdas:
     plt.plot(cycles[lam], label=f"Cycle (λ = {lam})")
@@ -71,3 +69,32 @@ plt.tight_layout()
 plt.show()
 
 ![image](https://github.com/user-attachments/assets/62794854-e364-40ac-a63c-fd8c796ebd9a)
+
+## real GDP of Japan
+### following is the code for 1994-2022, was not able to find 1978- data since oecd stat page was not working
+!pip install pandas_datareader
+import pandas as pd
+import pandas_datareader.data as web
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+import pandas_datareader as pdr
+import numpy as np
+
+start_date = '1994-01-01'
+end_date = '2022-01-01'
+
+series_id = 'JPNRGDPEXP'
+gdp = web.DataReader(series_id, 'fred', start_date, end_date)
+log_gdp = np.log(gdp)
+
+cycle, trend = sm.tsa.filters.hpfilter(log_gdp, lamb=1600)
+
+plt.plot(log_gdp, label="Original GDP (in log)")
+
+plt.plot(trend, label="Trend")
+plt.title("Japan GDP and trend")
+
+plt.legend()
+plt.show()
+
+![Quarterly GDP growth chart for Japan, 1994–2022](\Users\yuiwa\keio-macro\my-macro-project-1/jp_trend_1600.png)
